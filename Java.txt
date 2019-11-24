@@ -1,0 +1,154 @@
+包的命名规则：
+企业域名的反写+项目名称+模块名称
+
+方法：
+方法的定义：
+完成某一个具体功能的代码块，从某种程度上说，可以使代码得到很好的复用
+
+
+
+
+
+方法的修饰符 返回值类型 方法名（参数表）{
+
+}
+public static 返回值 方法名（参数表）{
+//方法的实现
+}
+返回值类型的种类：
+基本数据类型
+引用数据类型
+void类型
+
+方法名：遵循一般变量的命名规则
+
+参数表：
+每一个参数必须有类型，多个参数之间由“，”隔开
+
+方法体使用{}表示，具体业务实现放在{}。方法体写完以后，根据返回值类型来确定返回什么样的值
+
+
+public static int min（int[] args）{
+int tmp=[args[0];
+for(int i=1;i<args.length;i++){
+if(tmp<args[i]){
+tmp=arge[i];
+}
+}
+return tmp
+}
+
+数组声明：
+数据类型 [] 数组名称=new 数据类型[]
+int [] arry=new int[6];
+int [] array={1,2,3,4};
+
+方法的调用：
+实参初始化形参的过程   
+public static void m1（int a,int b）{形参
+system.out.println(a+b);
+}
+public static void main(string[]args){
+m1(6,8)}实参
+
+
+类：收集一系列具有相同属性和行为的对象的容器。类是封装一系列对象的属性和行为的容器
+
+对象：万物皆对象，每个对象都有其所属的类
+
+面向对象的三大特征：
+1、封装
+   把一系列对象所具有的共同的属性和行为进行抽取，形成一个类，通过这个类封装这些对象的属性和行为
+2、继承
+
+3、多态
+
+
+Java的类结构
+
+public class 类名{
+ 若干属性（成员变量）
+ 若干行为（方法）
+
+ }
+ 属性：说明对象的某一特征的专有名词
+ 行为：描述对象的某一个动作
+
+
+ 人类：
+ 类名：person
+
+ 属性：姓名  权限修饰符（public）   数据类型（String）  变量名（name）
+       性别  权限修饰符（public）   数据类型（Char）  变量名（gender）
+       年龄  权限修饰符（public）   数据类型（int）  变量名（age）
+ 行为：吃饭   方法的权限修饰符（public）  返回值类型（void）  方法名（eat）  参数表（无参数）
+       睡觉   方法的权限修饰符（public）  返回值类型（void）  方法名（sleep）  参数表（无参数）
+       玩     方法的权限修饰符（public）  返回值类型（void）  方法名（play）  参数表（无参数）
+
+类一旦创建成功，就可以通过该类
+
+创建对象的格式：
+ 类名 对象的引用名=new 类名（）
+ 通过对象访问访问对象的属性和行为，对象名.属性名
+-----------------------------------------------------------------------------------------------------------   静态代码块
+     只有一个类的时候，静态代码块优先执行（仅一次）---普通代码块----执行构造器
+     若存在继承关系（object除外）
+    先执行父类静态，再执行子类静态，再执行其他
+
+   Maven：
+    idea集成Maven
+    pom文件：
+         pom工程
+             管理所有的子工程，不需要src目录，
+         jar工程
+             maven只会打包所有的Java文件，不会打包配置文件
+         web工程（war）
+             会打包所有的文件
+      可以使用packaging节点进行打包
+   	<packaging>pom</packaging>
+   	<packaging>jar</packaging>
+   	<packaging>war</packaging>
+          约定优于配置，配置优于编码
+    properties节点：                   
+                  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>                 
+       可通过自定义节点名称来控制依赖的版本号   
+   dependenciy节点：
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+        节点坐标的网站：http：//mvnrepository.com
+        有许多的dependency节点，dependency 表示一个坐标       
+   dependencyManagement节点：            
+       主要管理所有子项目的依赖节点，而且该节点下只能由dependencies节点,使用dependencyManagement管理的节点依赖不会导入相异的依赖
+    <dependencyManagement>
+     <dependencies>
+       <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+    	  <groupId>mysql</groupId>
+    	  <artifactId>mysql-connector-java</artifactId>
+    	  <version>6.0.6</version>
+	</dependency>
+
+     </dependencies>
+   </dependencyManagement>               
+                      
+                                             
+
+                          
+              
+                        
+                  
+             
+                 
+                 
+          
+       
+         
